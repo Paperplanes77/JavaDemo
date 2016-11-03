@@ -48,7 +48,7 @@ public class ListDemo {
 		out.println("ll2.addAll(1,ll)："+"是否将容器加入到ll2中指定索引去了");
 		ll2.addAll(1, ll);
 		out.println(ll2);//加入到左边索引
-		out.println("判断容器是否包含另一个容器中的所以元素！");
+		out.println(".containsAll(ll3)+判断容器是否包含另一个容器中的所以元素！");
 		List<String> ll3=new LinkedList<String>();
 		ll.containsAll(ll3);
 		out.println(ll.containsAll(ll3));
@@ -62,16 +62,42 @@ public class ListDemo {
 		out.println("ll2.lastindexOf"+"判断某个元素最后出现的在容器里下标");
 		int p=ll2.lastIndexOf("ttt");
 		out.println(p);
-		out.println("将对象ll2转换为数组");
+		out.println("2.toArray()将对象ll2转换为数组");
 		Object[] obj=ll2.toArray();
 		for (Object object : obj) {
 			out.print(object+"**");
 		}
-		out.println("截取ll2的里面的一段内容");
+		out.println(".subList(3, 7)+截取ll2的里面的一段内容");
 		List<String> list=ll2.subList(3, 7);
 		out.println(list);//抱左不抱右、
 		Spliterator<String > spl=list.spliterator();
 		out.println(spl);
+		out.println("迭代器遍历list容器中指定索引开始的");
+		out.println(list);
+		Iterator<String> mm=list.listIterator(1);
+		while (mm.hasNext()) {
+			String string = (String) mm.next();
+			out.println(string);
+		}
+		out.println(".set(1, 'badboy')+换掉指定索引处的索引 用另一个元素");
+		list.set(1, "badboy");
+		out.println(list.toString());
+		out.println(".retainAll(list2)+保留留与另一个容器的共同元素！");
+		//ll2.retainAll(list);
+		List<String> list2=new LinkedList<String>();
+		list2.add("wwww");
+		list2.add("ppp");
+		out.println(list.retainAll(list2));
+		out.println(list.toString());//对象容器必须包含指定容器的所有元素true
+		out.println(list2.retainAll(list));
+		out.println(list2.toString());//对象容器不包含指定容器的所有元素false
+		out.println(".clear()+清除所有元素！");
+		ll2.clear();
+		out.println(ll2);
+		out.println(".add('你好啊')+在末尾添加元素返回值boolean");
+		boolean flag2=ll2.add("你好啊");
+		out.println(ll2);
+	 
 		
 	}
 
