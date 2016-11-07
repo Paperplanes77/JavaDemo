@@ -59,6 +59,8 @@ public class ClassTest {
 				String oldValue=(String) field.get(obj);
 				String newValue=oldValue.replace("b", "a");
 				field.set(obj, newValue);
+				
+				
 			}
 		}
 		//反射把a变成b！
