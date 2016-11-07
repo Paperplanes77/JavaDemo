@@ -39,6 +39,8 @@ public class Demo1 {
 		out.println("integer>>>1:"+(Integer.toBinaryString(integer1>>>1)));
 		out.println("integer>>>1:"+(Integer.toBinaryString(integer1>>>32)));
 		out.println("integer>>>1:"+(Integer.toBinaryString(integer1>>>31)));
+		
+		
 	}
 
 }
