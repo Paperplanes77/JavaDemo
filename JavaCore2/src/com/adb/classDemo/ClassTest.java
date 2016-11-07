@@ -62,8 +62,6 @@ public class ClassTest {
 			}
 		}
 		//反射把a变成b！
-		
-		
 	}
 
 }
