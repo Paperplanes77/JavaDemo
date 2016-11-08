@@ -49,6 +49,10 @@ public class ClassTest {
 		System.out.println(methodCharAt.invoke(str, 1));
 		//一个Integer类型的对象2
 		System.out.println(methodCharAt.invoke(str, new Object[]{2}));
+		String startClass=args[0];
+		Method methodMain=Class.forName(startClass).getMethod("main",String[].class);
+		methodMain.invoke(null,(Object) new String[]{"aa","bb","cc"});
+		System.out.println(methodMain.invoke(null,(Object) new String[]{"aa","bb","cc"}));
 	}
 
 	private static void changeStringValue(Object obj) throws IllegalArgumentException, IllegalAccessException {

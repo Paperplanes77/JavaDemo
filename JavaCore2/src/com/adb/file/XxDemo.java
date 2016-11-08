@@ -1,36 +1,61 @@
 package com.adb.file;
 
 import java.awt.image.WritableRenderedImage;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Reader;
 import java.io.Writer;
 import java.util.Scanner;
 
 import org.omg.CORBA.INTERNAL;
 
 public class XxDemo {
-
+	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		File file=new File("D:"+File.separator+"configuration.txt");
+		//配置文件！
 		config(file);
-		math(100,168,1000);
+		//设法读取数据 i   j   k?
+		Reader reader=new FileReader(file);
+		BufferedReader io=new BufferedReader(reader);
+		String string=io.readLine();
+		Scanner sc=new Scanner(io.readLine());
+		sc.useDelimiter(":"+"Math.Integer"+"*");
+		while(string!=null){
+			io.readLine();
+		}
+		//将解题思路写入到配置文件？
+		//将计算得到的结果写入   有多个结果换行输出，以方便阅读？
+		///读取满足条件的数据
+		int[] answer=math(100,168,1000);
+		for (int i : answer) {
+			System.out.println(i);
+		}
 		
 	}
-	public static void math(int i, int j, int k) {
+	public static int[] math(int i, int j, int k) {
 		// TODO Auto-generated method stub
-		for(int c=0;c<=1000;c++){
-			for(int v=0;v<=400;v++){
-				if(true){
-					
-				}
-			}
+		int q=0;
+		int[] arr=new int[q+1];
+		for (int c=0;c<=k;c++) {
+			if (Math.sqrt(c+i)%1==0&&Math.sqrt(c+j)%1==0) {
+				//System.out.println(c);
+				arr[q]=c;
+				q++;
+			} 
 		}
+		return arr;
+
+		
 	}
 	public static void config(File file) throws IOException{
 		OutputStream os=new FileOutputStream(file, true);
