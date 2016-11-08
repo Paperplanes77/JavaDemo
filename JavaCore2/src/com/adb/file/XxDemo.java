@@ -25,20 +25,45 @@ public class XxDemo {
 		//配置文件！
 		config(file);
 		//设法读取数据 i   j   k?
-		Reader reader=new FileReader(file);
+		Reader reader=new FileReader(file); 
 		BufferedReader io=new BufferedReader(reader);
-		String string=io.readLine();
-		Scanner sc=new Scanner(io.readLine());
-		sc.useDelimiter(":"+"Math.Integer"+"*");
-		while(string!=null){
-			io.readLine();
+		//解决空指针异常！
+		Integer[] dataArr = null;
+		//Scanner sc=new Scanner(io.readLine());
+		//sc.useDelimiter(":"+"Math.Integer"+"*");
+		int i=0;
+		while(io.readLine()!=null){
+			Scanner sc=new Scanner(io.readLine());
+			if (i==3&&sc!=null) {
+				/*Scanner m=sc.useDelimiter(":");
+				int n=Integer.parseInt(m.toString());
+				Scanner m2=sc.useDelimiter("#");
+				int n2=Integer.parseInt(m2.toString());
+				Scanner m3=sc.useDelimiter("#");
+				int n3=Integer.parseInt(m3.toString());
+				dataArr[0]=n;
+				dataArr[1]=n2;
+				dataArr[2]=n3;*/
+				sc.useDelimiter(":");
+				sc.useDelimiter("#");
+				sc.useDelimiter("#");
+				while (sc.hasNext()) {
+					//dataArr[i]=Integer.parseInt(sc.next());
+					System.out.println(sc.next()+"  ");
+				}
+			}
+			++i;//不能用i++
+		}
+		System.out.println("获得数据结束！");
+		for (Integer ii : dataArr) {
+			System.out.println(ii);
 		}
 		//将解题思路写入到配置文件？
-		//将计算得到的结果写入   有多个结果换行输出，以方便阅读？
+		//将计算得到的结果写入   有多个结果换行输出，以方便阅读？（可以在遍历数组 write 然后writer.newline();
 		///读取满足条件的数据
 		int[] answer=math(100,168,1000);
-		for (int i : answer) {
-			System.out.println(i);
+		for (int ii : answer) {
+			System.out.println(ii);
 		}
 		
 	}
@@ -59,7 +84,7 @@ public class XxDemo {
 	}
 	public static void config(File file) throws IOException{
 		OutputStream os=new FileOutputStream(file, true);
-		Writer writer=new OutputStreamWriter(os,"GBK");
+		Writer writer=new OutputStreamWriter(os,"UTF-8");
 		//Writer writer=new FileWriter(file,true);
 		Scanner sc=new Scanner(System.in);
 		int m=Integer.parseInt(sc.next());
