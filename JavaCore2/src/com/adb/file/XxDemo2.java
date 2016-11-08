@@ -43,7 +43,10 @@ public class XxDemo2 {
 		}
 		int index=list.get(0).lastIndexOf(":");
 		String string=list.get(0).substring(index+1);
-		System.out.println(string+list.get(1)+list.get(2));
+		Integer m=Integer.parseInt(list.get(2));
+		Integer m2=Integer.parseInt(list.get(2));
+
+		System.out.println(string+m2+m);
 		/*Integer[] dataArr=null;
 		int i=0;
 		for (String string : list) {

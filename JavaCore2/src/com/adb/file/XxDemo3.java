@@ -32,7 +32,7 @@ public class XxDemo3 {
 		int[] srcData=getData(file, tmp);
 		//将解题思路
 		String str="1 调用config(file)方法配置文件 并返回一个数据的String的说明字符串！\r\n"+"2通过getData(file,tmp)方法获得设置数据源,并同时返回一个数组的int数组!\r\n"
-		+"3通过gerData（file,tmp)方法向配置文件追加数据说明,并告知退出配置文件!\r\n"+"4写入解题思路,并把答案输出!\r\n";
+		+"3通过gerData（file,tmp)方法向配置文件追加数据说明,并告知退出配置文件!\r\n"+"4满足同时满足加m加n平方根后取余1余数为0,并把答案输出!\r\n";
 		//求出满足条件的数据数组
 		int[] answerData=math(srcData[0],srcData[1],srcData[2]);
 		//写入数据的解题思路和答案！
@@ -106,6 +106,7 @@ public class XxDemo3 {
 		int q=0;
 		int[] arr=new int[q+1];
 		for (int c=0;c<=k;c++) {
+			//同时满足平方根后取于为0的数即为答案
 			if (Math.sqrt(c+i)%1==0&&Math.sqrt(c+j)%1==0) {
 				//System.out.println(c);
 				arr[q]=c;
