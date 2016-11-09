@@ -21,17 +21,17 @@ import java.util.Scanner;
 
 import org.omg.CORBA.INTERNAL;
 
-public class XxDemo4 {
+public class XxDemo5 {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		File file=new File("D:"+File.separator+"configuration.txt");
 		//配置文件！
-		String tmp=config(file);
+		config(file);
 		//设法读取数据 data1   data2   data3?  同时向文件中追加说明 数据是那些  并退出配置文件
-		int[] srcData=getData(file, tmp);
+		int[] srcData=getData(file);
 		//将解题思路
-		String str="1 调用config(file)方法配置文件 并返回一个数据的String的说明字符串！\r\n"+"2通过getData(file,tmp)方法获得设置数据源,向配置文件追加数据说明,并告知退出配置文件.并同时返回一个数组的int数组!\r\n"
+		String str="1 调用config(file)方法配置文件 \r\n"+"2通过getData(file)方法获得设置数据源,向配置文件追加数据说明,并告知退出配置文件.并同时返回一个数组的int数组!\r\n"
 		+"3通过math(srcData[0],srcData[1],srcData[2])方法求出满足条件的数据!\r\n"+"4通过deal()方法向文件追加解题思路和答案，最后通过show()方法在控制台打印!\r\n";
 		//求出满足条件的数据数组
 		int[] answerData=math(srcData[0],srcData[1],srcData[2]);
@@ -71,9 +71,8 @@ public class XxDemo4 {
 				writer.flush();
 				writer.close();
 	}
-	
-	//获得数据同时把答案数组算出
-	public static int[] getData(File file,String tmp) throws IOException{
+	//获得数据同时把数据源数组算出
+	public static int[] getData(File file) throws IOException{
 		//高效字符输入流
 		Reader reader=new FileReader(file); 
 		BufferedReader io=new BufferedReader(reader);
@@ -81,6 +80,17 @@ public class XxDemo4 {
 		OutputStream os=new FileOutputStream(file, true);
 		Writer writer=new OutputStreamWriter(os,"UTF-8");
 		//获得需要的标准数据处理
+		String src=io.readLine();
+		String tmp = null;
+		//判断数据是哪一行,然后对字符串进行切割获得数据!
+		while(src!=null){
+			if (src.contains("#")) {
+				tmp=src;
+				break;
+			}
+			src=io.readLine();
+		}
+		 
 		int index=tmp.lastIndexOf(":");
 		String string=tmp.substring(index+1);
 		String[] str =string.split("#");
@@ -117,7 +127,7 @@ public class XxDemo4 {
 	}
 	
 	//书写配置文档
-	public static String config(File file) throws IOException{
+	public static void config(File file) throws IOException{
 		//字节输出流 输入
 		OutputStream os=new FileOutputStream(file, true);
 		Writer writer=new OutputStreamWriter(os,"UTF-8");
@@ -131,10 +141,8 @@ public class XxDemo4 {
 		writer.write("读取当前行的内容是:这是一个java上机题的文档文件:\r\n");
 		writer.write("读取当前行的内容是:一个正整数,它加上"+m+"后是一个完全平方数,再加上"+m2+"又是一个完全平方数,请问该数是多少？\r\n");
 		writer.write("读取当前行的内容是:需要的参数如下：通过解析下面的字母串得到需要的参数值\r\n");
-		String string4="读取当前行的内容是:"+m+"#"+m2+"#"+m3+"\r\n";
-		//writer.write(string4);
+		writer.write("读取当前行的内容是:"+m+"#"+m2+"#"+m3+"\r\n");
 		writer.close();
-		return string4;
 	}
 
 }

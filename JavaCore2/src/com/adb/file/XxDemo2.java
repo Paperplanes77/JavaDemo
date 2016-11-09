@@ -31,7 +31,7 @@ public class XxDemo2 {
 		Reader reader=new FileReader(file); 
 		BufferedReader io=new BufferedReader(reader);
 		
-		Scanner sc=new Scanner(tmp);
+		/*Scanner sc=new Scanner(tmp);
 		sc.useDelimiter(":");
 		sc.useDelimiter("#");
 		List<String> list=new LinkedList<String>();
@@ -44,9 +44,15 @@ public class XxDemo2 {
 		int index=list.get(0).lastIndexOf(":");
 		String string=list.get(0).substring(index+1);
 		Integer m=Integer.parseInt(list.get(2));
-		Integer m2=Integer.parseInt(list.get(2));
-
-		System.out.println(string+m2+m);
+		Integer m2=Integer.parseInt(list.get(2));*/
+		int index=tmp.lastIndexOf(":");
+		String string=tmp.substring(index+1);
+		String[] str =string.split("#");
+		int data1=Integer.parseInt(str[0]);
+		int data2=Integer.parseInt(str[1]);
+		System.out.println(str[2]);
+		//int data3=Integer.parseInt(str[2]);
+		System.out.println(data1+data2);
 		/*Integer[] dataArr=null;
 		int i=0;
 		for (String string : list) {
