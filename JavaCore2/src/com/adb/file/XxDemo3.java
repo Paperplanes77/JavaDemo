@@ -64,8 +64,8 @@ public class XxDemo3 {
 					writer.write("满足数据的数据为："+i+"\r\n");
 				}
 				//关闭刷新流
-				writer.close();
 				writer.flush();
+				writer.close();
 	}
 	
 	//获得数据同时把答案数组算出
@@ -89,14 +89,15 @@ public class XxDemo3 {
 		String string=list.get(0).substring(index+1);
 		int data1=Integer.parseInt(string);
 		int data2=Integer.parseInt(list.get(1));
+		String string2=list.get(2);//通过调试发现 string2是 1000+"\r\n"
 		int data3=Integer.parseInt(list.get(2));
 		writer.write("当前行中，有需要的参数，参数为:"+data1+"   "+data2+"   "+data3+"\r\n");
 		writer.write("不再读取当前文件，读取配置文件的方法退出!\r\n");
-		//关闭刷新流
-		writer.close();
-		writer.flush();
 		//将得到的数据放入数组
 		int[] arr={data1,data2,data3};
+		//刷新关闭流
+		writer.flush();
+		writer.close();
 		return arr;
 	}
 	

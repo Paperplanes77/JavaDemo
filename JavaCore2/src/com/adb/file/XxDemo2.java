@@ -101,8 +101,6 @@ public class XxDemo2 {
 		writer.write("读取当前行的内容是:需要的参数如下：通过解析下面的字母串得到需要的参数值\r\n");
 		String string4="读取当前行的内容是:"+m+"#"+m2+"#"+m3+"\r\n";
 		writer.write(string4);
-		writer.write("当前行中，有需要的参数，参数为:"+m+"   "+m2+"   "+m3+"\r\n");
-		writer.write("不再读取当前文件，读取配置文件的方法退出!\r\n");
 		writer.close();
 		System.out.println("初始文件写入完毕！\r\n");
 		return string4;

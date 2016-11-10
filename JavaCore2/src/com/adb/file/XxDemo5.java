@@ -1,4 +1,4 @@
-package com.adb.file;
+ package com.adb.file;
 
 import java.awt.image.WritableRenderedImage;
 import java.io.BufferedReader;
@@ -34,7 +34,7 @@ public class XxDemo5 {
 		String str="1 调用config(file)方法配置文件 \r\n"+"2通过getData(file)方法获得设置数据源,向配置文件追加数据说明,并告知退出配置文件.并同时返回一个数组的int数组!\r\n"
 		+"3通过math(srcData[0],srcData[1],srcData[2])方法求出满足条件的数据!\r\n"+"4通过deal()方法向文件追加解题思路和答案，最后通过show()方法在控制台打印!\r\n";
 		//求出满足条件的数据数组
-		int[] answerData=math(srcData[0],srcData[1],srcData[2]);
+		List answerData=math(srcData[0],srcData[1],srcData[2]);
 		//写入数据的解题思路和答案！
 		deal(str,answerData,file);
 		//将计算得到的结果写入   有多个结果换行输出，以方便阅读？（可以在遍历数组 write 然后writer.newline();
@@ -58,14 +58,14 @@ public class XxDemo5 {
 				
 	}
 	//将解题思路和答案追加到文件中去！
-	public static void deal(String str,int[] arr,File file) throws IOException{
+	public static void deal(String str,List list,File file) throws IOException{
 		//向文件中追加数据
 				OutputStream os=new FileOutputStream(file, true);
 				Writer writer=new OutputStreamWriter(os,"UTF-8");
 				writer.write("解题思路为："+"\r\n");
 				writer.write(str);
-				for (int i : arr) {
-					writer.write("满足数据的数据为："+i+"\r\n");
+				for (Object object : list) {
+					writer.write("满足数据的数据为："+object+"\r\n");
 				}
 				//关闭刷新流
 				writer.flush();
@@ -110,18 +110,20 @@ public class XxDemo5 {
 	}
 	
 	//获得答案的数组 
-	public static int[] math(int i, int j, int k) {
+	public static List math(int i, int j, int k) {
 		// TODO Auto-generated method stub
-		int q=0;
-		int[] arr=new int[q+1];
+		/*int q=0;
+		int[] arr=new int[q+1];数组一开始就定义了 不能用这个接受*/
+		List<Integer> list=new LinkedList<Integer>();
 		for (int c=0;c<=k;c++) {
 			if (Math.sqrt(c+i)%1==0&&Math.sqrt(c+j)%1==0) {
 				//System.out.println(c);
-				arr[q]=c;
-				q++;
+				/*arr[q]=c;
+				q++;*/
+				list.add(c);
 			} 
 		}
-		return arr;
+		return list;
 
 		
 	}
