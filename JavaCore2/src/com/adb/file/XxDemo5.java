@@ -94,7 +94,7 @@ public class XxDemo5 {
 		int index=tmp.lastIndexOf(":");
 		String string=tmp.substring(index+1);
 		String[] str =string.split("#");
-		//除去字符串的头尾
+		//除去字符串的头尾空格心号
 		String tmpStr=str[2].trim();
 		int data1=Integer.parseInt(str[0]);
 		int data2=Integer.parseInt(str[1]);

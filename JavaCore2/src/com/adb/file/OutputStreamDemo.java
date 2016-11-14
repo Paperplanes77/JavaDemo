@@ -18,8 +18,8 @@ public class OutputStreamDemo {
 		byte[] b=name.getBytes();
 		os.write(b);
 		System.out.println("打印内容为："+new String(b));
-		os.close();
 		os.flush();
+		os.close();
 	}
 
 }

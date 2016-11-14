@@ -1,6 +1,6 @@
 package com.adb.thread;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
+ 
 
 public class TestDemo {
 
