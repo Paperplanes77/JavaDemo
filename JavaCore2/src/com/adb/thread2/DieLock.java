@@ -10,16 +10,16 @@ public class DieLock extends Thread{
 		// TODO Auto-generated method stub
 		 if (flag) {
 			synchronized (Lock.objA) {
-				System.out.println("objA"+true);
+				System.out.println("objA"+"----"+true);
 				synchronized (Lock.objB) {
-					System.out.println("objB"+true);
+					System.out.println("objB"+"----"+true);
 				}
 			}
 		}else {
 			synchronized (Lock.objB) {
-				System.out.println("objA"+false);
+				System.out.println("objA"+"----"+false);
 				synchronized (Lock.objA) {
-					System.out.println("objB"+false);
+					System.out.println("objB"+"----"+false);
 				}
 			}
 		}
