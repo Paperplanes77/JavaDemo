@@ -1,4 +1,4 @@
-package com.adb.annotation;
+package com.adb.annotation_regex;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

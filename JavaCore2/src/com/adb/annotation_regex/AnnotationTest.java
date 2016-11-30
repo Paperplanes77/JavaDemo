@@ -1,4 +1,4 @@
-package com.adb.annotation;
+package com.adb.annotation_regex;
 @XaAnnoation
 public class AnnotationTest {
 	@SuppressWarnings("deprecation")//让他不警告 命令行可以理解

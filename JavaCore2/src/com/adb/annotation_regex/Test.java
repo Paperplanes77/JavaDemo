@@ -1,4 +1,4 @@
-package com.adb.annotation;
+package com.adb.annotation_regex;
 
 public class Test {
 	public static void main(String[] args){
